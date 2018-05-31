@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="columns" data-ng-controller="addContact">
+        <h1>ADD CONTACTS</h1>
+        <form data-ng-submit="addContact()">
+            <div class="row collapse">
+                <div class="small-10 columns">
+                    <label>First name</label>
+                    <input type="text" data-ng-model="contactModel.firstname" size="30"
+                           placeholder="first name."/>
+                </div>
+                <div class="small-10 columns">
+                    <label>Last name</label>
+                    <input type="text" data-ng-model="contactModel.lastname" size="30"
+                           placeholder="last name."/>
+                </div>
+                <div class="small-10 columns">
+                    <label>Phone Number</label>
+                    <input type="text" data-ng-model="contactModel.phoneNumber" size="30"
+                           placeholder="phone number."/>
+                </div>
+                <div class="small-2 columns">
+                    <input class="button postfix" type="submit" value="Add"/>
+                </div>
+            </div>
+        </form>
+
+        <h1>Filter CONTACTS</h1>
+        <form>
+            <div class="row collapse">
+                <div class="small-10 columns">
+                    <label>First name</label>
+                    <input type="text" data-ng-model="firstname" size="30"
+                           placeholder="first name."/>
+                </div>
+                <div class="small-10 columns">
+                    <label>Last name</label>
+                    <input type="text" data-ng-model="lastname" size="30"
+                           placeholder="last name."/>
+                </div>
+            </div>
+        </form>
+
+
+
+        <ul class="no-bullet">
+            <table border="1">
+                <thead>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>Phone number</th>
+                <th>actions</th>
+                </thead>
+                <tr data-ng-repeat="contact in contacts | filter:firstname | filter:lastname ">
+                    <td>
+                        <label>First name</label>
+                        <input type="text" data-ng-model="contact.firstname" size="30"
+                               placeholder="first name."/>
+                    </td>
+                    <td>
+                        <label>Last name</label>
+                        <input type="text" data-ng-model="contact.lastname" size="30"
+                               placeholder="last name."/>
+                    </td>
+                    <td>
+                        <label>Phone Number</label>
+                        <input type="text" data-ng-model="contact.phoneNumber" size="30"
+                               placeholder="phone number."/>
+                    </td>
+                    <td>
+                        <button ng-click="removeContact(contact)">delete</button>
+                    </td>
+                </tr>
+            </table>
+
+        </ul>
+        {{contacts}}
+        <p data-ng-hide="contacts.length">You do not have anything contacts!</p>
+        <form data-ng-submit="purge()">
+            <input class="button" type="submit" value="Clear Done"/>
+        </form>
+
+        <p data-ng-hide="contacts.length">You do not have anything contacts!</p>
+        <form data-ng-submit="save()">
+            <input class="button" type="submit" value="Save Contacts"/>
+        </form>
+    </div>
+</div>
