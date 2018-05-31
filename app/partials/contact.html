@@ -1,6 +1,6 @@
 <div class="row">
     <div class="columns" data-ng-controller="addContact">
-        <h1>ADD CONTACTS</h1>
+        <h2>ADD CONTACTS</h2>
         <form data-ng-submit="addContact()">
             <div class="row collapse">
                 <div class="small-10 columns">
@@ -24,7 +24,7 @@
             </div>
         </form>
 
-        <h1>Filter CONTACTS</h1>
+        <h2>Filter CONTACTS</h2>
         <form>
             <div class="row collapse">
                 <div class="small-10 columns">
@@ -41,6 +41,7 @@
         </form>
 
 
+        <h2>Update CONTACTS</h2>
 
         <ul class="no-bullet">
             <table border="1">
@@ -73,13 +74,22 @@
             </table>
 
         </ul>
+        <p ng-if="contacts.length > 0">You do not have anything contacts!</p>
+        <br>
         {{contacts}}
-        <p data-ng-hide="contacts.length">You do not have anything contacts!</p>
+        <br>
+
+        <h2>Clear CONTACTS</h2>
+
+
         <form data-ng-submit="purge()">
             <input class="button" type="submit" value="Clear Done"/>
         </form>
+        <br>
 
-        <p data-ng-hide="contacts.length">You do not have anything contacts!</p>
+
+        <h2>Save CONTACTS</h2>
+
         <form data-ng-submit="save()">
             <input class="button" type="submit" value="Save Contacts"/>
         </form>
